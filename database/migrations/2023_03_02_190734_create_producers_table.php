@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('producers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('price', 9, 3);
-            $table->string('description');
-            $table->boolean("is_digital");
-            $table->uuid('ean_code')->unsigned()->nullable()->change();
-            $table->unsignedBigInteger('producer_id');
-            $table->foreign('producer_id')->references('id')->on('producers');
             $table->timestamps();
         });
     }
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('producers');
     }
 };
