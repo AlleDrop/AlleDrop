@@ -17,12 +17,13 @@ return new class extends Migration
             $table->decimal('price', 9, 3);
             $table->string('description');
             $table->boolean("is_digital");
-            $table->uuid('ean_code')->unsigned()->nullable()->change();
+            $table->string('ean_code')->nullable();
             $table->unsignedBigInteger('producer_id');
             $table->foreign('producer_id')->references('id')->on('producers');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
