@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price', 9, 3);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->boolean("is_digital");
             $table->string('ean_code')->nullable();
             $table->unsignedBigInteger('producer_id');
@@ -23,7 +23,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
