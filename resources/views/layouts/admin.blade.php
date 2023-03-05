@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="/bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/summernote/summernote-bs5.css" >
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -165,8 +166,8 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item {{ (in_array(request()->segment(2), ['products'])) ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-box"></i>
                             <p>
 								{{ __('Katalog') }}
@@ -175,14 +176,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                {{-- TODO --}}
-{{--                                <a href="#" class="nav-link active">--}}
-{{--                                    <i class="far fa-circle nav-icon"></i>--}}
-{{--                                    <p>Active Page</p>--}}
-{{--                                </a>--}}
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.products.index') }}" class="nav-link">
+                            <a href="{{ route('admin.products.index') }}" class="nav-link {{ (in_array(request()->segment(2), ['products'])) ? 'active' : '' }}" >
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>{{ __('Produkty') }}</p>
                                 </a>
@@ -227,7 +221,17 @@
 
         <!-- Main content -->
         <div class="content">
-           @yield('content')
+            @if($errors->any())
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                        <h5><i class="icon fas fa-ban"></i> {{__('Błąd')}}!</h5>
+                    @foreach($errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                </div>
+            @endif
+            @yield('content')
         </div>
         <!-- /.content -->
     </div>
@@ -258,10 +262,13 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="bower_components/admin-lte/plugins/jquery/jquery.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+<script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+<!-- summernote-bs5 -->
+<script src="/bower_components/admin-lte/plugins/summernote/summernote-bs5.js"></script>
+@yield('scripts')
 </body>
 </html>
