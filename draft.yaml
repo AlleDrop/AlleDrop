@@ -1,0 +1,12 @@
+models:
+  Setting:
+    group_name: string:400
+    key: string:400 index
+    type: string:400
+    value: longtext
+
+seeders: Setting
+
+controllers:
+  Setting:
+    resource

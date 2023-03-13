@@ -1,0 +1,21 @@
+created:
+    - app/Http/Controllers/Admin/SettingController.php
+    - database/factories/SettingFactory.php
+    - database/migrations/2023_03_09_165113_create_settings_table.php
+    - app/Models/Setting.php
+    - database/seeders/SettingSeeder.php
+    - tests/Feature/Http/Controllers/Admin/SettingControllerTest.php
+    - app/Http/Requests/SettingStoreRequest.php
+    - app/Http/Requests/SettingUpdateRequest.php
+    - resources/views/setting/index.blade.php
+    - resources/views/setting/create.blade.php
+    - resources/views/setting/show.blade.php
+    - resources/views/setting/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    OrderProduct: { product_id: integer, order_id: integer, quantity: integer, price: integer }
+    Producer: { name: string }
+    Product: { name: string, price: 'decimal:10', description: 'string nullable', is_digital: boolean, ean_code: 'string nullable', producer_id: integer }
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string nullable' }
+    Setting: { group_name: 'string:400', key: 'string:400 index', type: 'string:400', value: longtext }

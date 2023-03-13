@@ -176,22 +176,22 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                            <a href="{{ route('admin.products.index') }}" class="nav-link {{ (in_array(request()->segment(2), ['products'])) ? 'active' : '' }}" >
+                            <a href="{{ route('admin.products.index') }}" class="nav-link {{ (in_array(request()->segment(2), ['products'])) ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>{{ __('Produkty') }}</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="#" class="nav-link">--}}
-{{--                            <i class="nav-icon fas fa-th"></i>--}}
-{{--                            <p>--}}
-{{--                                Simple Link--}}
-{{--                                <span class="right badge badge-danger">New</span>--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+
+
+                    {{-- OSTATNIE --}}
+                    <li class="nav-item fixed-bottom">
+                        <a href="{{ route('admin.settings.index') }}"  class="nav-link {{ (in_array(request()->segment(2), ['settings'])) ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-sliders-h"></i>
+                            <p>{{ __('Ustawienia') }}</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
