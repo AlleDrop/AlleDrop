@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProducerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,5 @@ Route::group([
 ], function (){
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/products', ProductController::class);
+    Route::resource('/producers', ProducerController::class);
 });

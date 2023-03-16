@@ -181,6 +181,12 @@
                                     <p>{{ __('Produkty') }}</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.producers.index') }}" class="nav-link {{ (in_array(request()->segment(2), ['producers'])) ? 'active' : '' }}" >
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>{{ __('Producenci') }}</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 {{--                    <li class="nav-item">--}}
