@@ -36,7 +36,7 @@
                                                 <a class="btn btn-success" href="{{ route('admin.producers.edit', $producer) }}">
                                                     {{ __('Edytuj') }}
                                                 </a>
-                                                <form method="DELETE" action="{{ route('admin.producers.destroy', $producer) }}">
+                                                <form method="POST" action="{{ route('admin.producers.destroy', $producer) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger">{{ __('Delete') }}</button>
